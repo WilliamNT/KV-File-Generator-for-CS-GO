@@ -27,17 +27,13 @@ while True:
         while mapName.endswith(".bsp"):
             print('Invalid map name. Map names with the ending ".bsp" are not allowed.')
             break
-        if mapName == "":
-            mapName = "map"
-            break
         else:
             break
     except ValueError:
         print('Invalid map name. Map names with the ending ".bsp" are not allowed.')
 
-
-#Asking the user for details
-mapAuthor = input("Author name > ")
+if mapName == "":
+    mapName = "map"
 
 while True:
     try:
@@ -107,7 +103,7 @@ elif charType_CT == 7:
 
 while True:
     try:
-        print("##########" + "\n" + "Map name: " + mapName + "\n" + "Author: " + mapAuthor + "\n" + "T type: " + friendlyCharName_T + "\n" + "CT type: " + friendlyCharName_CT + "\n" "##########")
+        print("##########" + "\n" + "Map name: " + mapName + "\n" + "T type: " + friendlyCharName_T + "\n" + "CT type: " + friendlyCharName_CT + "\n" "##########")
         configConfirm = input("Are these correct? [Y/N] > ").upper()
         while configConfirm not in ("Y", "N", ""):
             print('Invalid answer. Please choose between yes [Y] and no [N].')

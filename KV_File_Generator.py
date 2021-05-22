@@ -110,7 +110,7 @@ while True:
             break
 
         else:
-            break #Még meg kell csinálni hogy újra kezdje az inputokat
+            break
     except ValueError:
         break
 

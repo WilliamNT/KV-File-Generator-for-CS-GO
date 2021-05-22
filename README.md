@@ -5,7 +5,7 @@ In order to use this piece of software, you need to have Python 3+ installed.
 https://www.python.org/downloads/
 
 # How it works
-1. Drag and drop the "KV File Generator.py" file on to your desktop.
+1. Drag and drop the "KV_File_Generator.py" file on to your desktop.
 2. Start the program by double clicking on the file.
 3. You will be asked to enter a map name. Type in your map name, and hit enter when you're done.
 4. You will be asked to enter an author name. Type in your author name, and hit enter when you're done.
@@ -15,3 +15,6 @@ https://www.python.org/downloads/
 8. If you want to make changes, type "n", and the program will clear all settings you entered.
 
 The file will be generated in the same directory the generator is, with the name of the map.
+
+# Known issues
+-If you rename the file, and it has a space, the program will crash (when typing "n" or "r" at the end where you confirm your configuration)

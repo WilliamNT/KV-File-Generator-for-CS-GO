@@ -5,6 +5,15 @@ import os
 import sys
 import logging
 
+#logging
+logging.basicConfig(filename='kvgenerator_log.log', level=logging.DEBUG, 
+                    format='%(asctime)s %(levelname)s %(name)s %(message)s')
+logger=logging.getLogger(__name__)
+try:
+    1/0
+except ZeroDivisionError as err:
+    logger.error(err)
+
 def restartSelf():
         print("Configuration cleared. You may start again now.")
         os.execv(sys.executable, ['python'] + sys.argv)
@@ -96,7 +105,7 @@ while True:
     try:
         print("##########" + "\n" + "Map name: " + mapName + "\n" + "T type: " + friendlyCharName_T + "\n" + "CT type: " + friendlyCharName_CT + "\n" "##########")
         configConfirm = input("Are these correct? [Y/N] > ").upper()
-        while configConfirm not in ("Y", "N", "", "P"):
+        while configConfirm not in ("Y", "N", ""):
             print('Invalid answer. Please choose between yes [Y] and no [N].')
             break
 
@@ -163,17 +172,15 @@ elif charType_CT == 7: #SWAT
     ctline = '		"ctm_swat"""\n		"ctm_swat_variantA"""\n		"ctm_swat_variantB"""\n		"ctm_swat_variantC"""\n		"ctm_swat_variantD"""\n'
     charArm_CT = 'models/weapons/ct_arms_swat.mdl'
 
-def finalPrint():
-    finalprint = '"'+mapName+'"\n' '{\n' '     "name"  ' '"'+mapName+'"\n' '     "imagename"     ' '"'+mapName+'"\n'  '     "t_arms"    '  '"'+charArm_T+'"\n'	'   "ct_arms"   '	'"'+charArm_CT+'"\n'	    '   "t_models"\n' '    {\n' +tline+ '}\n' 	'   "ct_models"\n' '    {\n' +ctline+ '    }\n' '}\n'
+finalprint = '"'+mapName+'"\n' '{\n' '     "name"  ' '"'+mapName+'"\n' '     "imagename"     ' '"'+mapName+'"\n'  '     "t_arms"    '  '"'+charArm_T+'"\n'	'   "ct_arms"   '	'"'+charArm_CT+'"\n'	    '   "t_models"\n' '    {\n' +tline+ '}\n' 	'   "ct_models"\n' '    {\n' +ctline+ '    }\n' '}\n'
 
 
 #Generate a file, if the user confirms that the settings are correct they gave
-if configConfirm.upper() == "Y" or "":
+if configConfirm.upper() == "Y"or "":
     with open(mapName + ".kv", 'w') as outputTxt:
-         outputTxt.write(finalPrint)
+         outputTxt.write(finalprint)
     print('File' + '"' + mapName + ".kv" + '"successfully generated.')
-elif configConfirm.upper() == "N":
+elif configConfirm.upper() == "N" or "R":
     restartSelf()
-    
 
 input("Press enter to exit. > ")

@@ -1,3 +1,6 @@
+# GUI version comming soon!
+I'm currently working on a version with a graphical interface. The reason? Not everybody knows how to use python scripts properly. Once I finish that project, I will stop maintaining this one.
+
 # KV-File-Generator-for-CS-GO
 Generate a .KV file for CS:GO
 
